@@ -21,7 +21,7 @@ public class GetViewDefinitionGeneratorFirebird extends GetViewDefinitionGenerat
     @Override
     public Sql[] generateSql(GetViewDefinitionStatement statement, Database database, SqlGeneratorChain sqlGeneratorChain) {
         return new Sql[] {
-                new UnparsedSql("select rdb$view_source from rdb$relations where upper(rdb$relation_name)='" + statement.getViewName() + "'")
+                new UnparsedSql("select rdb$view_source from rdb$relations where rdb$relation_name='" + statement.getViewName() + "'")
         };
     }
 }
